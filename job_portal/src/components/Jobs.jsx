@@ -4,24 +4,24 @@ import FilterCards from './FilterCards'
 import Job from './Job'
 import { useSelector } from 'react-redux'
 
-const JobArray = [1, 2, 3, ]
+const JobArray = [1, 2, 3,]
 
 const Jobs = () => {
-    const {allJobs, searchedQuery} = useSelector((store) => store.job);
-    const [filterJobs,setFilterJobs] = useState(allJobs)
+    const { allJobs, searchedQuery } = useSelector((store) => store.job);
+    const [filterJobs, setFilterJobs] = useState(allJobs)
 
     useEffect(() => {
-       if(searchedQuery) {
-        const filteredJobs = allJobs.filter((job) => {
-            return job.title.toLowerCase().includes(searchedQuery.toLowerCase()) || 
-            job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
-            job.location.toLowerCase().includes(searchedQuery.toLowerCase())
-        })
-        setFilterJobs(filteredJobs)
-       } else {
-        setFilterJobs(allJobs)
-       }
-    },[allJobs,searchedQuery])
+        if (searchedQuery) {
+            const filteredJobs = allJobs.filter((job) => {
+                return job.title.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+                    job.description.toLowerCase().includes(searchedQuery.toLowerCase()) ||
+                    job.location.toLowerCase().includes(searchedQuery.toLowerCase())
+            })
+            setFilterJobs(filteredJobs)
+        } else {
+            setFilterJobs(allJobs)
+        }
+    }, [allJobs, searchedQuery])
 
 
     return (
@@ -35,13 +35,13 @@ const Jobs = () => {
                     {
                         filterJobs.length === 0 ? <span>Job not found</span> : (
                             <div className='flex-1 h-[88vh] overflow-y-auto pb-5'>
-                                  <div className='grid grid-cols-3 gap-4'>
-                                  {
-                                     filterJobs.map((job) => (
-                                     <Job job={job} key={job._id} />)
+                                <div className='grid grid-cols-3 gap-4'>
+                                    {
+                                        filterJobs.map((job) => (
+                                            <Job job={job} key={job._id} />)
                                         )
-                                  }
-                                  </div>
+                                    }
+                                </div>
                             </div>
                         )
                     }

@@ -11,7 +11,7 @@ const filterData = [
    },
    {
     filterType: 'Industry',
-    array: ["Frontend Developer", "Backend Developer", "Fullstack Developer"]
+    array: ["Frontend Developer", "Backend Developer", "Fullstack Developer","Data Science"]
    },
    {
     filterType: 'Salery',

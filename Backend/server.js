@@ -17,14 +17,15 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
-}));
-
+  origin: 'https://job-portal-fullstack-seven.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}))
 // app.use(cors({
-//   origin: 'https://jobportal-mernstack-1.onrender.com', 
-//   credentials: true
+//     origin: "http://localhost:5173",
+//     credentials: true
 // }));
+
 
 app.use(cookieParser());
 

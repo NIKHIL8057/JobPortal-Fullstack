@@ -151,9 +151,12 @@ const Navbar = () => {
               <><li><Link className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${active('/admin/companies')}`} to='/admin/companies'>Companies</Link></li>
                 <li><Link className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${active('/admin/jobs')}`} to='/admin/jobs'>Jobs</Link></li></>
             ) : (
-              <><li><Link className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${active('/')}`} to='/'>Home</Link></li>
+              <>
+                <li><Link className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${active('/')}`} to='/'>Home</Link></li>
                 <li><Link className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${active('/jobs')}`} to='/jobs'>Jobs</Link></li>
-                <li><Link className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${active('/browse')}`} to='/browse'>Browse</Link></li></>
+                <li><Link className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${active('/browse')}`} to='/browse'>Browse</Link></li>
+                <li><Link className={`px-3 py-1.5 rounded-lg text-sm transition-colors ${active('/mentor')}`} to='/mentor'>Mentor</Link></li>
+              </>
             )}
           </ul>
 
@@ -188,6 +191,9 @@ const Navbar = () => {
                       <User2 size={15} /> View Profile
                     </Link>
                   )}
+                  <Link to='/mentor/register' className='w-full flex items-center gap-2.5 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-xl transition-colors'>
+                    <User2 size={15} /> Become a Mentor
+                  </Link>
                   <button onClick={LogoutHandler} className='w-full flex items-center gap-2.5 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-xl transition-colors'>
                     <LogOut size={15} /> Logout
                   </button>

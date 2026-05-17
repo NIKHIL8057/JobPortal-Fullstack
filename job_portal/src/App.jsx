@@ -15,6 +15,8 @@ import AdminJobs from './components/admin/Jobs'
 import Postjobs from './components/admin/Postjobs'
 import Applicants from './components/admin/Applicants'
 import ProtectedRoute from './components/admin/ProtectedRoute'
+import Mentor from './components/Mentor'
+import MentorRegister from './components/MentorRegister'
 
 const appRouter = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const appRouter = createBrowserRouter([
     path: '/profile',
     element: <Profile />
   },
+  {
+    path: '/mentor/register',
+    element: <MentorRegister />
+},
+{
+    path: '/mentor',
+    element: <Mentor/>
+},
   // Admin routes
   {
     path: '/admin/companies',

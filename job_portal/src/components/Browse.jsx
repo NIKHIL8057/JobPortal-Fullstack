@@ -10,7 +10,6 @@ const randomJob = [1]
 const Browse = () => {
     useGetAllJobs()
     const { allJobs = [] } = useSelector(store => store.job);
-    console.log("Search jobs",allJobs);
     const dispatch = useDispatch();
 
     useEffect(() => {

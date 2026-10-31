@@ -15,19 +15,21 @@ const app = express();
 
 // middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 // app.use(cors({
 //     origin: "http://localhost:5173",
 //     credentials: true
 // }));
 
+
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://YOUR-FRONTEND.vercel.app"
+        "https://job-portal-iota-ecru.vercel.app"
     ],
     credentials: true
 }));
+
 // app.use(cors({
 //     origin: "http://localhost:5173",
 //     credentials: true
@@ -41,16 +43,16 @@ connectDB();
 const port = process.env.PORT || 5000
 
 // api 
-app.use("/api/v1/user",userRouter);
-app.use("/api/v1/company",companyRouter);
-app.use("/api/v1/job",JobRouter);
-app.use("/api/v1/application",applicationRouter)
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/company", companyRouter);
+app.use("/api/v1/job", JobRouter);
+app.use("/api/v1/application", applicationRouter)
 app.use("/api/v1/mentor", mentorRouter);
 
-app.get("/",(req,res) => {
+app.get("/", (req, res) => {
     res.send("server is ready");
 })
 
-app.listen(port,() => {
+app.listen(port, () => {
     console.log(`Server is runnng ${port}`);
 })

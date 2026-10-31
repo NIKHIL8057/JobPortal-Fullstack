@@ -1,12 +1,9 @@
-  {
-    "rewrites": [
-      {
-        "source": "/api/:path*",
-        "destination": "https://jobportal-fullstack-idgg.onrender.com/api/:path*"
-      },
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
-  }
+
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

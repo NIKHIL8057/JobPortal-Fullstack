@@ -114,11 +114,18 @@ export const login = async (req, res) => {
             profile: user.profile
         }
 
-        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpsOnly: true, sameSite: 'strict' }).json({
-            message: `Welcome back ${user.username}`,
-            success: true,
-            user
-        })
+        return res.status(200)
+            .cookie("token", token, {
+                maxAge: 1 * 24 * 60 * 60 * 1000,
+                httpOnly: true,
+                secure: true,
+                sameSite: "none"
+            })
+            .json({
+                message: `Welcome back ${user.username}`,
+                success: true,
+                user
+            });
 
     } catch (error) {
         console.log(error);
@@ -127,14 +134,20 @@ export const login = async (req, res) => {
 // log out user
 export const logout = async (req, res) => {
     try {
-        return res.status(200).cookie("token", "", { maxAge: 0 }).json({
-            message: "Logged out successfully..",
-            success: true,
-        })
+        return res.status(200)
+            .clearCookie("token", {
+                httpOnly: true,
+                secure: true,
+                sameSite: "none"
+            })
+            .json({
+                message: "Logged out successfully..",
+                success: true
+            });
     } catch (error) {
         console.log(error);
     }
-}
+};
 // update profile user
 export const updateProfile = async (req, res) => {
     try {
